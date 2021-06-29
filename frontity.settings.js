@@ -24,7 +24,6 @@ const settings = {
     "@frontity/html2react",
     "@frontity/yoast",
     "@aamodtgroup/block-processors",
-    "@aamodtgroup/frontity-contact-form-7",
     "@aamodtgroup/frontity-gravity-forms"
   ]
 };
