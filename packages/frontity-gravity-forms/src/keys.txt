@@ -1,0 +1,5 @@
+Consumer Key 
+ck_41f2feeddb63ee06761bf288ba6fa3a405a29c72
+
+Consumer Secret
+cs_48e5b769a94fe803c34fd20682ea38a8b389550b
