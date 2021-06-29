@@ -1,5 +1,5 @@
 {
-  "name": "test-app",
+  "name": "frontity-gf-demo",
   "version": "1.0.0",
   "private": true,
   "description": "Frontity project",
@@ -17,14 +17,13 @@
   },
   "prettier": {},
   "dependencies": {
-    "@aamodtgroup/agtech": "./packages/agtech",
-    "@aamodtgroup/block-processors": "0.1.1",
-    "@aamodtgroup/frontity-gravity-forms": "./packages/frontity-gravity-forms",
+    "@aamodtgroup/frontity-gravity-forms": "^0.1.2",
     "@frontity/core": "^1.14.2",
     "@frontity/html2react": "^1.7.0",
+    "@frontity/mars-theme": "./packages/mars-theme",
     "@frontity/tiny-router": "^1.4.2",
     "@frontity/wp-source": "^1.11.5",
     "@frontity/yoast": "^2.1.1",
-    "frontity": "^1.15.0"
+    "frontity": "^1.16.0"
   }
 }

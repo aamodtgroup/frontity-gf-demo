@@ -1,4 +1,4 @@
-# test-app
+# frontity-cf7-demo
 
 This project was bootstrapped with [Frontity](https://frontity.org/).
 
