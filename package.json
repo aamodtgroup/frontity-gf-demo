@@ -18,7 +18,7 @@
   "prettier": {},
   "dependencies": {
     "@aamodtgroup/agtech": "./packages/agtech",
-    "@aamodtgroup/block-processors": "0.1.0",
+    "@aamodtgroup/block-processors": "0.1.1",
     "@aamodtgroup/frontity-contact-form-7": "^0.2.4",
     "@aamodtgroup/frontity-gravity-forms": "./packages/frontity-gravity-forms",
     "@frontity/core": "^1.14.2",
