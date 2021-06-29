@@ -12,10 +12,13 @@ import FormIdContext from "./../context/FormIdContext";
  * @return {*|string}
  *
  */
-const Message = ( { state } ) => {
+const Message = ( { state, libraries } ) => {
 
 	const id           = React.useContext( FormIdContext );
 	const responseInfo = state.gf.forms[ id ];
+
+	// Get the html2react component for the message.
+	const Html2React = libraries.html2react.Component;
 
 	/**
 	 * Get the error or success message
@@ -24,10 +27,10 @@ const Message = ( { state } ) => {
 	 */
 	const getMessage = () => {
 
-		if ( 'active' === responseInfo.status && typeof responseInfo.status === 'string' ) {
-			return <SuccessMessage>{ responseInfo.message }</SuccessMessage>
-		} else if ( 'failed' === responseInfo.status && typeof responseInfo.validationErrors === 'string' ) {
-			return <ErrorMessage>{ responseInfo.validationErrors }</ErrorMessage>
+		if ( 'sent' === state.gf.forms[ id ].status && typeof responseInfo.message === 'string' ) {
+			return <SuccessMessage><Html2React html={responseInfo.message} /></SuccessMessage>
+		} else if ( 'failed' === responseInfo.status ) {
+			return <ErrorMessage>{responseInfo.message}</ErrorMessage>
 		} else {
 			return '';
 		}

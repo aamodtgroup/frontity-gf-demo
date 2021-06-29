@@ -74,13 +74,6 @@ const GravityForms = {
 				const myData = state.gf.forms[ id ].inputVals;
 
 				// Create new form data to send the post request with form data.
-/* 				let formData = new FormData();
-
-				Object.keys( myData ).forEach( ( key ) => {
-					formData.append( key, myData[ key ] );
-				} );
-
-				let data = {}; */
 				const formData = new FormData(event.target);
 				for (var key of formData.keys()) {
 					console.log(key, formData.get(key));
@@ -115,20 +108,22 @@ const GravityForms = {
 				/**
 				 * Populate state with the errors, or thank-you message...
 				 */
-				if ( 'mail_sent' === body.status ) {
+				if ( true === body.is_valid ) {
 
 					state.gf.forms[ id ].status  = "sent";
-					state.gf.forms[ id ].message = body.message;
+					state.gf.forms[ id ].message = body.confirmation_message;
 
 					// Once the email is sent, clear the form fields.
 					state.gf.forms[ id ].inputVals = {};
 					// Clear message after 5s
 					setTimeout(() => { state.gf.forms[ id ].message = {}; }, 5000);
 
-				} else if ( 'validation_failed' === body.status || 'mail_failed' === body.status ) {
+				} else if ( false === body.is_valid ) {
 
-					if(body.invalid_fields){
-						body.invalid_fields.forEach( item => {
+					state.gf.forms[ id ].status = "failed";
+
+					if(body.validation_messages){
+						body.validation_messages.forEach( item => {
 
 							let errorKey = item.into.replace('span.wpgf-form-control-wrap.','');
 							if ( errorKey ) {
@@ -140,13 +135,11 @@ const GravityForms = {
 						state.gf.forms[ id ].invalidFields = invalidFieldsObj;
 					}
 
-					state.gf.forms[ id ].status = "failed";
-
 					/**
 					 * Populate errors from the response so React components
 					 * can see them and re-render appropriately
 					 */
-					state.gf.forms[ id ].validationErrors = body.message;
+					state.gf.forms[ id ].message = body.message;
 
 				}
 
