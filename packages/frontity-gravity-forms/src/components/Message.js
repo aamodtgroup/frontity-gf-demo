@@ -27,7 +27,7 @@ const Message = ( { state, libraries } ) => {
 	 */
 	const getMessage = () => {
 
-		if ( 'sent' === state.gf.forms[ id ].status && typeof responseInfo.message === 'string' ) {
+		if ( 'sent' === responseInfo.status && typeof responseInfo.message === 'string' ) {
 			return <SuccessMessage><Html2React html={responseInfo.message} /></SuccessMessage>
 		} else if ( 'failed' === responseInfo.status ) {
 			return <ErrorMessage>{responseInfo.message}</ErrorMessage>

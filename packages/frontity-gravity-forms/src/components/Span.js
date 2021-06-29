@@ -23,11 +23,13 @@ const Span = ( { state, children, className, spanKey } ) => {
 	}
 
 	return (
-		<span className={ className }>
+		<span>
+			<div className={ className }>
 			{ children }
 			{ errorMessage && (
 				<NotValidTip>{ errorMessage }</NotValidTip>
 			) }
+			</div>
 		</span>
 	);
 

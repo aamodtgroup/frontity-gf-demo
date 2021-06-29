@@ -93,7 +93,6 @@ const GravityForms = {
 					},
 					body: JSON.stringify(myData)
 				} );
-				console.log(formData);
 				const body = await res.json();
 				let invalidFieldsObj = {};
 
@@ -120,26 +119,28 @@ const GravityForms = {
 
 				} else if ( false === body.is_valid ) {
 
-					state.gf.forms[ id ].status = "failed";
-
 					if(body.validation_messages){
-						body.validation_messages.forEach( item => {
-
-							let errorKey = item.into.replace('span.wpgf-form-control-wrap.','');
-							if ( errorKey ) {
-								invalidFieldsObj[errorKey] = item.message;
-							}
-
-						} );
+						console.log(body.validation_messages);
+						let error = JSON.stringify(body.validation_messages)
+						
+						for (const key in body.validation_messages) {
+							console.log(`${key} : ${body.validation_messages[key]}`)
+							let errorKey = key.replace(key,'input_' + key);
+							invalidFieldsObj[errorKey] = body.validation_messages[key];
+						}
+						
+						console.log(invalidFieldsObj);
 
 						state.gf.forms[ id ].invalidFields = invalidFieldsObj;
 					}
+
+					state.gf.forms[ id ].status = "failed";
 
 					/**
 					 * Populate errors from the response so React components
 					 * can see them and re-render appropriately
 					 */
-					state.gf.forms[ id ].message = body.message;
+					state.gf.forms[ id ].message = 'One or more fields have an error. Please check and try again.';
 
 				}
 

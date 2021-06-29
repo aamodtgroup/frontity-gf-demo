@@ -6,8 +6,8 @@ import { gfSpan } from "./gfSpan";
 
 export default [
     gfForm,
+    gfSpan,
     gfInputs,
     gfTextarea,
-    gfHiddenInputs,
-    gfSpan,
+    gfHiddenInputs
 ];

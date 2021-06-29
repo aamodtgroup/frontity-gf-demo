@@ -2,8 +2,10 @@ import Span from '../components/Span';
 
 export const gfSpan = {
 	name: "gfSpan",
-	test: ({ node }) => node.component === "span" && /wpgf-form-control-wrap/.test( node.props.className ),
+	test: ({ node }) => node.component === "div" && /ginput_container/.test( node.props.className ),
 	processor: ({ node }) => {
+
+		console.log('Here!');
 
 		let spanKey = '';
 
