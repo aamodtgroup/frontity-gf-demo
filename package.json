@@ -22,7 +22,7 @@
     "@aamodtgroup/frontity-contact-form-7": "^0.2.6",
     "@aamodtgroup/frontity-gravity-forms": "./packages/frontity-gravity-forms",
     "@frontity/core": "^1.14.2",
-    "@frontity/html2react": "^1.6.2",
+    "@frontity/html2react": "^1.7.0",
     "@frontity/tiny-router": "^1.4.2",
     "@frontity/wp-source": "^1.11.5",
     "frontity": "^1.15.0"
