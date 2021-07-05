@@ -24,6 +24,6 @@
     "@frontity/tiny-router": "^1.4.2",
     "@frontity/wp-source": "^1.11.5",
     "@frontity/yoast": "^2.1.1",
-    "frontity": "^1.16.0"
+    "frontity": "^1.16.1"
   }
 }
